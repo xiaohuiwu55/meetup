@@ -1,0 +1,28 @@
+<div class="col-md-12">
+    <div class="meet">
+      <%= link_to("New meet", new_meet_path, class: "btn btn-primary pull-right") %>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>Title</td>
+          <td>Description</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @meets.each do |meet| %>
+          <tr>
+            <td>#</td>
+            <td><%= link_to(meet.title, meet_path(meet)) %></td>
+            <td><%= meet.description %></td>
+            <td>
+                <%= link_to("Edit", edit_meet_path(meet), class: "btn btn-sm btn-default")%>
+                <%= link_to("Delete", meet_path(meet),    class: "btn btn-sm btn-default",
+                            method: :delete, data: { confirm: "Are you sure?" } )%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+   </div>
