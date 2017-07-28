@@ -1,11 +1,31 @@
 <div class="col-md-12">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <div class="meet">
+        <%= link_to("Edit", edit_meet_path(@meet), class: "btn btn-primary pull-right")%>
+      </div>
 
-    <div class="meet">
-      <%= link_to("Edit", edit_meet_path(@meet), class: "btn btn-primary pull-right")%>
+      <h2><%= @meet.title %></h2>
+
+      <p><%= @meet.description %></p>
     </div>
+    <div class="panel-body">
+      <% if @meet.comments.empty? %>
+      <p> 尚未有人留言 </p>
+     <% else %>
+      <% @floor = 1 %>
+      <% @meet.comments.each do |comment| %>
+        <%= @floor %>楼
+        <div class="col-md-12">
+          <p><%= comment.message %></p>
+        </div>
+        <% @floor = @floor  + 1 %>
+        </br>
+      <% end%>
+     <% end %>
 
-    <h2><%= @meet.title %></h2>
 
-    <p><%= @meet.description %></p>
-
+     <%= render 'comment_form' %>
+    </div>
+  </div>
 </div>

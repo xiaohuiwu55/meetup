@@ -1,0 +1,5 @@
+
+<%= simple_form_for(Comment.new, url: meet_comments_path(@meet)) do |f| %>
+   <%= f.input :message %>
+   <%= f.button :submit ,'submit'%>
+<% end %>

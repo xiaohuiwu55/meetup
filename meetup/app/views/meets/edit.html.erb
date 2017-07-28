@@ -2,14 +2,14 @@
     <h2>修改meetup</h2>
 
     <hr>
-    <%= form_for @meet do |f| %>
+    <%= simple_form_for @meet do |f| %>
 
-    标题
-    <%= f.text_field :title %>
+
+    <%= f.input :title,label: '标题' %>
     <br>
-    叙述
+
     <br>
-    <%= f.text_area :description %>
+    <%= f.input :description, label: '叙述'%>
     <br>
 
     <%= f.submit "Submit", :disable_with => 'Submiting...' %>
